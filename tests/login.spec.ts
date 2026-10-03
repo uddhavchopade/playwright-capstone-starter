@@ -38,9 +38,7 @@ test('02 Wrong password shows an error', async ({ page }) => {
   await login.open();
   await login.login('Retail Banking', 'demo', 'not-the-password');
 
-  // TODO: assert the error text (LoginPage already has an errorMessage locator).
   await expect(login.errorMessage).toHaveText("Invalid area, username or password");
-  // TODO: assert the URL still contains /login.
   await expect(page).toHaveURL("/login");
 });
 
@@ -65,8 +63,8 @@ for(const [area, username] of [
     await login.login(area, username, 'demo1234');
 
     await login.expectOnDashboard();
-    await expect(dashboard.welcomeText()).toHaveText(`Welcome, ${username}`);
-    await expect(dashboard.areaText()).toHaveText(area);
+    await expect(dashboard.welcomeText).toHaveText(`Welcome, ${username}`);
+    await expect(dashboard.areaText).toHaveText(area);
   });
 }
 

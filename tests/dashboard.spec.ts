@@ -10,9 +10,9 @@ test("04 Dashboard lists the holdings for the account", async ({
 }) => {
   const dashboard = new DashboardPage(page);
 
-  await expect(dashboard.holdingCount()).toHaveCount(3);
-  await expect(dashboard.firstHoldingName()).toHaveText("Bluechip Growth Fund");
-  await expect(dashboard.firstHoldingMeta()).toHaveText(/NSE/);
+  await expect(dashboard.holdingCount).toHaveCount(3);
+  await expect(dashboard.firstHoldingName).toHaveText("Bluechip Growth Fund");
+  await expect(dashboard.firstHoldingMeta).toHaveText(/NSE/);
 });
 
 // Selenium: DashboardTests.emptyAccountShowsMessage
@@ -24,6 +24,6 @@ test("05 An account with no holdings shows the empty message", async ({
 }) => {
   const dashboard = new DashboardPage(page);
 
-  await expect(dashboard.noHoldingsText()).toHaveText("No holdings remaining.");
-  await expect(dashboard.holdingCount()).toHaveCount(0);
+  await expect(dashboard.noHoldingsText).toHaveText("No holdings remaining.");
+  await expect(dashboard.holdingCount).toHaveCount(0);
 });
